@@ -9,7 +9,7 @@ namespace CarLotSimulator
         static void Main(string[] args)
         {
             var carList = new List<Car>();
-
+            CarLot carLot = new CarLot();
             Car car1 = new Car();
             car1.Year = 2005;
             car1.Make = "Subaru";
@@ -17,8 +17,11 @@ namespace CarLotSimulator
             car1.EngineNoise = Car.MakeEngineNoise("brom brom brommmmm");
             car1.HornNoise = Car.MakeHornNoise("Yeah you!!!");
             car1.IsDriveable = true;
-
-            carList.Add(car1);
+            
+            
+            carLot.carList.Add(car1);
+            Console.WriteLine("I have this many cars on my lot: ");
+            Console.WriteLine(CarLot._numberOfCars);
 
             var car2 = new Car()
             {
@@ -29,13 +32,17 @@ namespace CarLotSimulator
                 HornNoise = Car.MakeHornNoise("Chirp Chirp"),
                 IsDriveable = true
             };
-            carList.Add(car2);
+            carLot.carList.Add(car2);
+            Console.WriteLine("I have this many cars on my lot: ");
+            Console.WriteLine(CarLot._numberOfCars);
 
             var car3 = new Car(1992, "Toyota", "Supra", "putt put putttttt", "hhhhhhhhonk", false);
 
-            carList.Add(car3);
+            carLot.carList.Add(car3);
+            Console.WriteLine("I have this many cars on my lot: ");
+            Console.WriteLine(CarLot._numberOfCars);
 
-            foreach (var vehicle in carList)
+            foreach (var vehicle in carLot.carList)
             {
                 Console.WriteLine($"{vehicle.Year} {vehicle.Make} {vehicle.Model} {vehicle.EngineNoise} {vehicle.HornNoise} {vehicle.IsDriveable}");
             }
